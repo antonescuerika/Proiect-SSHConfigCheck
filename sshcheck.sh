@@ -36,7 +36,7 @@ verificare() {
     setare_curenta=$(grep "^$optiune" "$fisier" | awk '{print $2}' | tail -n 1)
 
     if [ -z "$setare_curenta" ]; then
-        echo "$optiune nu este setat."
+        echo "$optiune nu este setat"
     elif [ "$setare_curenta" != "$recomandat" ]; then
         echo "$mesaj"
     else
@@ -54,7 +54,7 @@ verificare "X11Forwarding" "no" \
 	"Redirectionarea X11 poate fi exploatata"
 
 if ! grep -q '^AllowUsers' "$fisier"; then
-	echo "Nu există lista AllowUsers, accesul este permis oricărui utilizator local."
+	echo "Nu există lista AllowUsers, accesul este permis oricărui utilizator local"
 else
 	echo "Lista AllowUsers configurata"
 fi
@@ -70,7 +70,7 @@ fi
 permisiuni=$(stat -c %a "$fisier")
 
 if [ "$permisiuni" -gt 644 ]; then
-	echo "Permisiuni prea permisive, se recomanda 600 sau 640."
+	echo "Permisiuni prea permisive, se recomanda 600 sau 640"
 else
 	echo "Permisiuni adecvate"
 fi
